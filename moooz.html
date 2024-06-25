@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Drink Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .quiz-container { max-width: 600px; margin: auto; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Find Your Perfect Drink</h1>
+        <div class="question">
+            <p>1. What is your favorite time of day?</p>
+            <label><input type="radio" name="q1" value="morning"> Morning</label><br>
+            <label><input type="radio" name="q1" value="afternoon"> Afternoon</label><br>
+            <label><input type="radio" name="q1" value="evening"> Evening</label><br>
+        </div>
+        <div class="question">
+            <p>2. What kind of flavors do you prefer?</p>
+            <label><input type="radio" name="q2" value="sweet"> Sweet</label><br>
+            <label><input type="radio" name="q2" value="bitter"> Bitter</label><br>
+            <label><input type="radio" name="q2" value="sour"> Sour</label><br>
+        </div>
+        <button onclick="showResult()">Get Recommendation</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function showResult() {
+            const q1 = document.querySelector('input[name="q1"]:checked').value;
+            const q2 = document.querySelector('input[name="q2"]:checked').value;
+
+            let recommendation = "";
+
+            if (q1 === "morning" && q2 === "sweet") {
+                recommendation = "Mimosa";
+            } else if (q1 === "afternoon" && q2 === "bitter") {
+                recommendation = "Negroni";
+            } else if (q1 === "evening" && q2 === "sour") {
+                recommendation = "Whiskey Sour";
+            } else {
+                recommendation = "Margarita";
+            }
+
+            document.getElementById("result").innerHTML = `We recommend: ${recommendation}`;
+        }
+    </script>
+</body>
+</html>
